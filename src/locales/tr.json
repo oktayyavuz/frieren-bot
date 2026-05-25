@@ -1,0 +1,449 @@
+{
+    "commands": {
+        "help": {
+            "name": "yardım",
+            "description": "Bot komutlarını gösterir",
+            "title": "📚 Komut Listesi",
+            "noCommands": "Bu kategoride komut bulunamadı.",
+            "categories": {
+                "moderation": "🛡️ Moderasyon",
+                "economy": "💰 Ekonomi",
+                "games": "🎮 Oyunlar",
+                "level": "✨ Seviye",
+                "ticket": "🎫 Destek",
+                "admin": "⚙️ Yönetim",
+                "utility": "🔧 Araçlar",
+                "giveaway": "🎉 Çekiliş",
+                "fun": "😄 Eğlence",
+                "music": "🎵 Müzik"
+            }
+        },
+        "balance": {
+            "name": "bakiye",
+            "description": "Bakiyeni kontrol et",
+            "title": "💰 Bakiye",
+            "wallet": "Cüzdan",
+            "bank": "Banka",
+            "total": "Toplam",
+            "netWorth": "Net Değer"
+        },
+        "daily": {
+            "name": "günlük",
+            "description": "Günlük ödülünü al",
+            "success": "Günlük ödülünü aldın! **{amount}** {currency} kazandın!",
+            "cooldown": "Günlük ödülünü zaten aldın! Sonraki: {time}"
+        },
+        "weekly": {
+            "name": "haftalık",
+            "description": "Haftalık ödülünü al",
+            "success": "Haftalık ödülünü aldın! **{amount}** {currency} kazandın!",
+            "cooldown": "Haftalık ödülünü zaten aldın! Sonraki: {time}"
+        },
+        "hourly": {
+            "name": "saatlik",
+            "description": "Saatlik ödülünü al",
+            "success": "Saatlik ödülünü aldın! **{amount}** {currency} kazandın!",
+            "cooldown": "Saatlik ödülünü zaten aldın! Sonraki: {time}"
+        },
+        "work": {
+            "name": "çalış",
+            "description": "Para kazanmak için çalış",
+            "success": "Çalıştın ve **{amount}** {currency} kazandın!",
+            "cooldown": "Dinlenmen lazım! Sonraki: {time}",
+            "scenarios": [
+                "Bir restorana garson olarak çalıştın",
+                "Bahçe işleri yaptın",
+                "Freelance yazılım geliştirdin",
+                "Market kasiyeri olarak çalıştın",
+                "Kurye olarak paket taşıdın",
+                "Ders verdin ve para kazandın",
+                "Tamircilik yaptın",
+                "Temizlik işleri yaptın"
+            ]
+        },
+        "crime": {
+            "name": "suç",
+            "description": "Suç işleyerek para kazan (riskli!)",
+            "success": "Suç işledin ve **{amount}** {currency} kazandın! 🤫",
+            "fail": "Yakalandın ve **{amount}** {currency} ceza ödedin! 👮",
+            "cooldown": "Polis seni arıyor, biraz bekle! Sonraki: {time}"
+        },
+        "rob": {
+            "name": "soygun",
+            "description": "Birini soy",
+            "success": "{target} kullanıcısından **{amount}** {currency} soydun!",
+            "fail": "Soygun başarısız! **{amount}** {currency} ceza ödedin!",
+            "noMoney": "Bu kullanıcının soyacak parası yok!",
+            "self": "Kendini soyamazsın!",
+            "cooldown": "Çok dikkat çekiyorsun! Sonraki: {time}"
+        },
+        "transfer": {
+            "name": "transfer",
+            "description": "Birine para gönder",
+            "success": "{target} kullanıcısına **{amount}** {currency} gönderdin!",
+            "noMoney": "Yeterli bakiyen yok!",
+            "self": "Kendine para gönderemezsin!",
+            "invalidAmount": "Geçersiz miktar!"
+        },
+        "shop": {
+            "name": "market",
+            "description": "Marketi göster",
+            "title": "🛒 Market",
+            "empty": "Markette ürün bulunmuyor!",
+            "bought": "**{item}** satın aldın!",
+            "noMoney": "Yeterli bakiyen yok!",
+            "outOfStock": "Bu ürün tükendi!"
+        },
+        "inventory": {
+            "name": "envanter",
+            "description": "Envanterini göster",
+            "title": "🎒 Envanter",
+            "empty": "Envanterin boş!"
+        },
+        "leaderboard": {
+            "name": "sıralama",
+            "description": "Liderlik tablosunu göster",
+            "title": "🏆 Liderlik Tablosu",
+            "economy": "💰 Ekonomi Sıralaması",
+            "level": "✨ Seviye Sıralaması",
+            "noData": "Henüz veri bulunmuyor!"
+        },
+        "rank": {
+            "name": "seviye",
+            "description": "Seviye kartını göster",
+            "title": "Seviye Kartı"
+        },
+        "ban": {
+            "name": "yasakla",
+            "description": "Kullanıcıyı sunucudan yasakla",
+            "success": "**{user}** sunucudan yasaklandı!\n**Sebep:** {reason}",
+            "cannotBan": "Bu kullanıcıyı yasaklayamazsın!",
+            "alreadyBanned": "Bu kullanıcı zaten yasaklı!"
+        },
+        "kick": {
+            "name": "at",
+            "description": "Kullanıcıyı sunucudan at",
+            "success": "**{user}** sunucudan atıldı!\n**Sebep:** {reason}",
+            "cannotKick": "Bu kullanıcıyı atamazsın!"
+        },
+        "timeout": {
+            "name": "sustur",
+            "description": "Kullanıcıyı geçici olarak sustur",
+            "success": "**{user}** **{duration}** süreyle susturuldu!\n**Sebep:** {reason}",
+            "cannotTimeout": "Bu kullanıcıyı susturamazsın!",
+            "removed": "**{user}** kullanıcısının susturması kaldırıldı!"
+        },
+        "warn": {
+            "name": "uyar",
+            "description": "Kullanıcıyı uyar",
+            "success": "**{user}** uyarıldı!\n**Sebep:** {reason}\n**Toplam Uyarı:** {count}"
+        },
+        "warnings": {
+            "name": "uyarılar",
+            "description": "Kullanıcının uyarılarını göster",
+            "title": "⚠️ Uyarılar - {user}",
+            "noWarnings": "Bu kullanıcının uyarısı bulunmuyor.",
+            "cleared": "**{user}** kullanıcısının tüm uyarıları temizlendi!"
+        },
+        "nuke": {
+            "name": "nuke",
+            "description": "Kanalı sıfırdan oluştur",
+            "success": "Kanal başarıyla sıfırlandı! 💥",
+            "confirm": "⚠️ Bu kanal tamamen silinip yeniden oluşturulacak. Emin misin?"
+        },
+        "snipe": {
+            "name": "snipe",
+            "description": "Silinen son mesajı göster",
+            "title": "🔍 Silinen Mesaj",
+            "noSnipe": "Son silinen mesaj bulunamadı!",
+            "deletedBy": "Silen"
+        },
+        "automod": {
+            "name": "otomod",
+            "description": "Oto-moderasyon ayarları",
+            "enabled": "✅ **{feature}** etkinleştirildi!",
+            "disabled": "❌ **{feature}** devre dışı bırakıldı!",
+            "status": "Oto-Mod Durumu"
+        },
+        "afk": {
+            "name": "afk",
+            "description": "AFK moduna geç",
+            "set": "💤 **{user}** AFK oldu: {reason}",
+            "return": "👋 **{user}** geri döndü! (AFK süresi: {duration})",
+            "mention": "💤 **{user}** şu anda AFK: {reason} ({duration} önce)"
+        },
+        "reminder": {
+            "name": "hatırlatıcı",
+            "description": "Hatırlatıcı kur",
+            "set": "⏰ Hatırlatıcı kuruldu! {time} sonra hatırlatılacak.",
+            "remind": "⏰ Hatırlatıcı: {message}",
+            "list": "⏰ Aktif Hatırlatıcılar",
+            "noReminders": "Aktif hatırlatıcın bulunmuyor.",
+            "deleted": "Hatırlatıcı silindi!"
+        },
+        "avatar": {
+            "name": "avatar",
+            "description": "Kullanıcının avatarını göster"
+        },
+        "userinfo": {
+            "name": "kullanıcı-bilgi",
+            "description": "Kullanıcı hakkında bilgi göster",
+            "title": "👤 Kullanıcı Bilgisi",
+            "joinedServer": "Sunucuya Katılım",
+            "accountCreated": "Hesap Oluşturulma",
+            "roles": "Roller",
+            "permissions": "Yetkiler"
+        },
+        "serverinfo": {
+            "name": "sunucu-bilgi",
+            "description": "Sunucu hakkında bilgi göster",
+            "title": "🏠 Sunucu Bilgisi",
+            "owner": "Sahip",
+            "members": "Üyeler",
+            "channels": "Kanallar",
+            "roles": "Roller",
+            "boosts": "Boost Sayısı",
+            "created": "Oluşturulma"
+        },
+        "botinfo": {
+            "name": "bot-bilgi",
+            "description": "Bot hakkında bilgi göster",
+            "title": "🤖 Bot Bilgisi",
+            "uptime": "Çalışma Süresi",
+            "servers": "Sunucu Sayısı",
+            "users": "Kullanıcı Sayısı",
+            "memory": "Bellek Kullanımı",
+            "ping": "Gecikme"
+        },
+        "embed": {
+            "name": "embed",
+            "description": "Özel embed mesaj oluştur"
+        },
+        "setup": {
+            "name": "kurulum",
+            "description": "Sunucu kurulum sihirbazı",
+            "roleSetup": "Rol Kurulumu",
+            "channelSetup": "Kanal Kurulumu",
+            "emojiSetup": "Emoji Kurulumu",
+            "confirm": "⚠️ Bu işlem mevcut {type} üzerinde değişiklik yapacak. Devam etmek istiyor musun?",
+            "success": "✅ {type} kurulumu tamamlandı!",
+            "inProgress": "⏳ {type} kurulumu devam ediyor..."
+        },
+        "settings": {
+            "name": "ayarlar",
+            "description": "Sunucu ayarlarını yönet",
+            "title": "⚙️ Sunucu Ayarları",
+            "updated": "✅ Ayar güncellendi!"
+        },
+        "welcome": {
+            "name": "hoşgeldin",
+            "description": "Hoş geldin mesajı ayarla",
+            "set": "✅ Hoş geldin mesajı ayarlandı!",
+            "disabled": "❌ Hoş geldin mesajı devre dışı bırakıldı!"
+        },
+        "autorole": {
+            "name": "otorol",
+            "description": "Otomatik rol ayarla",
+            "added": "✅ {role} otomatik rol olarak eklendi!",
+            "removed": "❌ {role} otomatik rollerden kaldırıldı!",
+            "list": "Otomatik Roller"
+        },
+        "buttonrole": {
+            "name": "butonrol",
+            "description": "Buton ile rol verme sistemi kur"
+        },
+        "selectrole": {
+            "name": "seçimrol",
+            "description": "Seçim menüsü ile rol verme sistemi kur"
+        },
+        "colorrole": {
+            "name": "renk",
+            "description": "Renk rolü sistemi"
+        },
+        "statsChannels": {
+            "name": "istatistik",
+            "description": "İstatistik kanallarını ayarla"
+        },
+        "giveaway": {
+            "name": "çekiliş",
+            "description": "Çekiliş yönetimi",
+            "started": "🎉 Çekiliş başlatıldı!",
+            "ended": "🎉 Çekiliş sona erdi!",
+            "winner": "🎉 Kazanan: {winners}",
+            "noWinner": "Yeterli katılımcı olmadığı için kazanan belirlenemedi.",
+            "rerolled": "🎉 Yeniden çekildi! Yeni kazanan: {winner}",
+            "join": "🎉 Çekilişe katıldın!",
+            "leave": "Çekilişten ayrıldın!",
+            "alreadyJoined": "Zaten çekilişe katılmışsın!"
+        },
+        "ticketSetup": {
+            "name": "ticket-kur",
+            "description": "Ticket sistemi kur"
+        },
+        "blackjack": {
+            "name": "blackjack",
+            "description": "Blackjack oyna",
+            "bet": "Bahis miktarını gir",
+            "win": "Kazandın! **+{amount}** {currency}",
+            "lose": "Kaybettin! **-{amount}** {currency}",
+            "draw": "Berabere! Bahsin geri verildi.",
+            "bust": "21'i aştın! Kaybettin!",
+            "dealerBust": "Krupiye 21'i aştı! Kazandın!",
+            "hit": "Kart Çek",
+            "stand": "Dur",
+            "double": "İkiye Katla"
+        },
+        "slot": {
+            "name": "slot",
+            "description": "Slot makinesi oyna",
+            "win": "🎰 Kazandın! **+{amount}** {currency}",
+            "lose": "🎰 Kaybettin! **-{amount}** {currency}",
+            "jackpot": "🎰 JACKPOT! **+{amount}** {currency} 🎊"
+        },
+        "coinflip": {
+            "name": "yazıtura",
+            "description": "Yazı tura oyna",
+            "heads": "Yazı",
+            "tails": "Tura",
+            "win": "Doğru tahmin! **+{amount}** {currency}",
+            "lose": "Yanlış tahmin! **-{amount}** {currency}"
+        },
+        "guess": {
+            "name": "tahmin",
+            "description": "Sayı tahmin oyunu",
+            "start": "1-100 arası bir sayı tuttum! Tahmin et.",
+            "higher": "Daha yüksek! ⬆️",
+            "lower": "Daha düşük! ⬇️",
+            "correct": "Doğru tahmin! **{attempts}** denemede bildin! **+{amount}** {currency}"
+        },
+        "wordchain": {
+            "name": "kelimezinciri",
+            "description": "Kelime zinciri oyunu kanalı ayarla"
+        },
+        "bom": {
+            "name": "bom",
+            "description": "BOM oyunu başlat"
+        },
+        "counting": {
+            "name": "sayısayma",
+            "description": "Sayı sayma kanalı ayarla"
+        },
+        "purge": {
+            "name": "sil",
+            "description": "Toplu mesaj sil",
+            "success": "🗑️ **{count}** mesaj silindi!"
+        },
+        "deposit": {
+            "name": "yatır",
+            "description": "Bankaya para yatır",
+            "success": "🏦 **{amount}** {currency} bankaya yatırıldı!",
+            "noMoney": "Yeterli bakiyen yok!"
+        },
+        "withdraw": {
+            "name": "çek",
+            "description": "Bankadan para çek",
+            "success": "💳 **{amount}** {currency} bankadan çekildi!",
+            "noMoney": "Bankanda yeterli para yok!"
+        },
+        "unban": {
+            "name": "yasakkaldır",
+            "description": "Kullanıcının yasağını kaldır",
+            "success": "✅ **{user}** kullanıcısının yasağı kaldırıldı!"
+        },
+        "lock": {
+            "name": "kilitle",
+            "description": "Kanalı kilitle veya aç"
+        },
+        "slowmode": {
+            "name": "yavaşmod",
+            "description": "Kanal yavaş modunu ayarla"
+        },
+        "ping": {
+            "name": "ping",
+            "description": "Bot gecikmesini göster"
+        },
+        "levelRewards": {
+            "name": "seviye-ödülleri",
+            "description": "Seviye ödüllerini yönet"
+        }
+    },
+    "systems": {
+        "welcome": {
+            "defaultMessage": "Hoş geldin {user}! 🎉 **{server}** sunucusuna katıldın! Artık sunucuda **{memberCount}** kişiyiz.",
+            "defaultGoodbye": "Güle güle **{user}**! Umarız tekrar görüşürüz. 👋"
+        },
+        "automod": {
+            "swearBlocked": "⚠️ {user}, küfür/argo kullanımı yasaktır!",
+            "spamBlocked": "⚠️ {user}, spam yapmayı bırak!",
+            "capsBlocked": "⚠️ {user}, çok fazla büyük harf kullanıyorsun!",
+            "linkBlocked": "⚠️ {user}, link paylaşımı yasaktır!"
+        },
+        "antiRaid": {
+            "triggered": "🚨 **Anti-Raid aktif!** Son {interval} saniyede {count} kişi katıldı. Otomatik {action} uygulanıyor."
+        },
+        "leveling": {
+            "levelUp": "Tebrikler {user}! 🎉 **{level}** seviyesine ulaştın!"
+        },
+        "ticket": {
+            "createButton": "📩 Destek Talebi Oluştur",
+            "created": "Destek talebin oluşturuldu! {channel}",
+            "closed": "Bu talep kapatıldı.",
+            "closeButton": "🔒 Talebi Kapat",
+            "transcriptButton": "📝 Transkript",
+            "deleteButton": "🗑️ Sil",
+            "panelTitle": "📩 Destek Sistemi",
+            "panelDescription": "Aşağıdaki butona tıklayarak destek talebi oluşturabilirsiniz."
+        },
+        "privateRoom": {
+            "created": "🔊 Özel odan oluşturuldu: {channel}",
+            "deleted": "🔇 Özel oda silindi.",
+            "lockButton": "🔒 Kilitle",
+            "unlockButton": "🔓 Kilidi Aç",
+            "renameButton": "✏️ İsim Değiştir",
+            "limitButton": "👥 Limit Ayarla",
+            "kickButton": "👢 Kullanıcı At"
+        },
+        "counting": {
+            "wrong": "❌ Yanlış sayı! Sayaç **0**'a sıfırlandı. Bir sonraki sayı: **1**",
+            "sameUser": "❌ Aynı kişi art arda sayamaz! Sayaç **0**'a sıfırlandı."
+        },
+        "wordchain": {
+            "wrong": "❌ Kelime \"{lastLetter}\" harfi ile başlamalı!",
+            "used": "❌ Bu kelime daha önce kullanıldı!",
+            "sameUser": "❌ Aynı kişi art arda oynayamaz!"
+        }
+    },
+    "roles": {
+        "added": "✅ {role} rolü eklendi!",
+        "removed": "❌ {role} rolü kaldırıldı!",
+        "updated": "✅ Rollerin güncellendi!",
+        "colorChanged": "🎨 Renk rolün değiştirildi: {role}"
+    },
+    "errors": {
+        "noPermission": "Bu komutu kullanmak için yetkin yok!",
+        "botNoPermission": "Botun bu işlemi yapmak için yetkin yok!",
+        "roleError": "Rol işlemi sırasında bir hata oluştu!",
+        "userNotFound": "Kullanıcı bulunamadı!",
+        "invalidAmount": "Geçersiz miktar!",
+        "notEnoughMoney": "Yeterli {currency} yok!",
+        "onCooldown": "Bu komutu tekrar kullanmak için **{time}** beklemelisin!",
+        "error": "Bir hata oluştu! Lütfen daha sonra tekrar dene.",
+        "adminOnly": "Bu komutu sadece yöneticiler kullanabilir!",
+        "modOnly": "Bu komutu sadece moderatörler kullanabilir!",
+        "ownerOnly": "Bu komutu sadece bot sahibi kullanabilir!"
+    },
+    "general": {
+        "yes": "Evet",
+        "no": "Hayır",
+        "enabled": "Etkin",
+        "disabled": "Devre dışı",
+        "page": "Sayfa",
+        "reason": "Sebep",
+        "moderator": "Moderatör",
+        "duration": "Süre",
+        "none": "Yok",
+        "confirm": "Onayla",
+        "cancel": "İptal",
+        "noReason": "Sebep belirtilmedi"
+    }
+}

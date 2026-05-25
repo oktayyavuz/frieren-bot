@@ -1,0 +1,449 @@
+{
+    "commands": {
+        "help": {
+            "name": "help",
+            "description": "Shows bot commands",
+            "title": "📚 Commands",
+            "noCommands": "No commands found in this category.",
+            "categories": {
+                "moderation": "🛡️ Moderation",
+                "economy": "💰 Economy",
+                "games": "🎮 Games",
+                "level": "✨ Level",
+                "ticket": "🎫 Support",
+                "admin": "⚙️ Admin",
+                "utility": "🔧 Utility",
+                "giveaway": "🎉 Giveaway",
+                "fun": "😄 Fun",
+                "music": "🎵 Music"
+            }
+        },
+        "balance": {
+            "name": "balance",
+            "description": "Check your balance",
+            "title": "💰 Balance",
+            "wallet": "Wallet",
+            "bank": "Bank",
+            "total": "Total",
+            "netWorth": "Net Worth"
+        },
+        "daily": {
+            "name": "daily",
+            "description": "Claim your daily reward",
+            "success": "You claimed your daily reward! You earned **{amount}** {currency}!",
+            "cooldown": "You already claimed your daily reward! Next: {time}"
+        },
+        "weekly": {
+            "name": "weekly",
+            "description": "Claim your weekly reward",
+            "success": "You claimed your weekly reward! You earned **{amount}** {currency}!",
+            "cooldown": "You already claimed your weekly reward! Next: {time}"
+        },
+        "hourly": {
+            "name": "hourly",
+            "description": "Claim your hourly reward",
+            "success": "You claimed your hourly reward! You earned **{amount}** {currency}!",
+            "cooldown": "You already claimed your hourly reward! Next: {time}"
+        },
+        "work": {
+            "name": "work",
+            "description": "Work to earn money",
+            "success": "You worked and earned **{amount}** {currency}!",
+            "cooldown": "You need to rest! Next: {time}",
+            "scenarios": [
+                "You worked as a waiter at a restaurant",
+                "You did gardening work",
+                "You did freelance software development",
+                "You worked as a cashier at a store",
+                "You delivered packages as a courier",
+                "You gave tutoring lessons",
+                "You did repair work",
+                "You did cleaning jobs"
+            ]
+        },
+        "crime": {
+            "name": "crime",
+            "description": "Commit crime to earn money (risky!)",
+            "success": "You committed a crime and earned **{amount}** {currency}! 🤫",
+            "fail": "You got caught and paid **{amount}** {currency} as a fine! 👮",
+            "cooldown": "The police are looking for you, wait a bit! Next: {time}"
+        },
+        "rob": {
+            "name": "rob",
+            "description": "Rob someone",
+            "success": "You robbed **{amount}** {currency} from {target}!",
+            "fail": "Robbery failed! You paid **{amount}** {currency} as a fine!",
+            "noMoney": "This user has no money to rob!",
+            "self": "You can't rob yourself!",
+            "cooldown": "You're drawing too much attention! Next: {time}"
+        },
+        "transfer": {
+            "name": "transfer",
+            "description": "Send money to someone",
+            "success": "You sent **{amount}** {currency} to {target}!",
+            "noMoney": "You don't have enough balance!",
+            "self": "You can't send money to yourself!",
+            "invalidAmount": "Invalid amount!"
+        },
+        "shop": {
+            "name": "shop",
+            "description": "Show the shop",
+            "title": "🛒 Shop",
+            "empty": "No items in the shop!",
+            "bought": "You bought **{item}**!",
+            "noMoney": "You don't have enough balance!",
+            "outOfStock": "This item is out of stock!"
+        },
+        "inventory": {
+            "name": "inventory",
+            "description": "Show your inventory",
+            "title": "🎒 Inventory",
+            "empty": "Your inventory is empty!"
+        },
+        "leaderboard": {
+            "name": "leaderboard",
+            "description": "Show the leaderboard",
+            "title": "🏆 Leaderboard",
+            "economy": "💰 Economy Rankings",
+            "level": "✨ Level Rankings",
+            "noData": "No data yet!"
+        },
+        "rank": {
+            "name": "rank",
+            "description": "Show your rank card",
+            "title": "Rank Card"
+        },
+        "ban": {
+            "name": "ban",
+            "description": "Ban a user from the server",
+            "success": "**{user}** has been banned!\n**Reason:** {reason}",
+            "cannotBan": "You cannot ban this user!",
+            "alreadyBanned": "This user is already banned!"
+        },
+        "kick": {
+            "name": "kick",
+            "description": "Kick a user from the server",
+            "success": "**{user}** has been kicked!\n**Reason:** {reason}",
+            "cannotKick": "You cannot kick this user!"
+        },
+        "timeout": {
+            "name": "timeout",
+            "description": "Temporarily timeout a user",
+            "success": "**{user}** has been timed out for **{duration}**!\n**Reason:** {reason}",
+            "cannotTimeout": "You cannot timeout this user!",
+            "removed": "Timeout has been removed from **{user}**!"
+        },
+        "warn": {
+            "name": "warn",
+            "description": "Warn a user",
+            "success": "**{user}** has been warned!\n**Reason:** {reason}\n**Total Warnings:** {count}"
+        },
+        "warnings": {
+            "name": "warnings",
+            "description": "Show user warnings",
+            "title": "⚠️ Warnings - {user}",
+            "noWarnings": "This user has no warnings.",
+            "cleared": "All warnings for **{user}** have been cleared!"
+        },
+        "nuke": {
+            "name": "nuke",
+            "description": "Recreate the channel",
+            "success": "Channel has been nuked! 💥",
+            "confirm": "⚠️ This channel will be completely deleted and recreated. Are you sure?"
+        },
+        "snipe": {
+            "name": "snipe",
+            "description": "Show the last deleted message",
+            "title": "🔍 Deleted Message",
+            "noSnipe": "No recently deleted message found!",
+            "deletedBy": "Deleted by"
+        },
+        "automod": {
+            "name": "automod",
+            "description": "Auto-moderation settings",
+            "enabled": "✅ **{feature}** has been enabled!",
+            "disabled": "❌ **{feature}** has been disabled!",
+            "status": "Auto-Mod Status"
+        },
+        "afk": {
+            "name": "afk",
+            "description": "Go AFK",
+            "set": "💤 **{user}** is now AFK: {reason}",
+            "return": "👋 **{user}** is back! (AFK duration: {duration})",
+            "mention": "💤 **{user}** is currently AFK: {reason} ({duration} ago)"
+        },
+        "reminder": {
+            "name": "reminder",
+            "description": "Set a reminder",
+            "set": "⏰ Reminder set! You'll be reminded in {time}.",
+            "remind": "⏰ Reminder: {message}",
+            "list": "⏰ Active Reminders",
+            "noReminders": "You have no active reminders.",
+            "deleted": "Reminder deleted!"
+        },
+        "avatar": {
+            "name": "avatar",
+            "description": "Show user's avatar"
+        },
+        "userinfo": {
+            "name": "userinfo",
+            "description": "Show user information",
+            "title": "👤 User Info",
+            "joinedServer": "Joined Server",
+            "accountCreated": "Account Created",
+            "roles": "Roles",
+            "permissions": "Permissions"
+        },
+        "serverinfo": {
+            "name": "serverinfo",
+            "description": "Show server information",
+            "title": "🏠 Server Info",
+            "owner": "Owner",
+            "members": "Members",
+            "channels": "Channels",
+            "roles": "Roles",
+            "boosts": "Boost Count",
+            "created": "Created"
+        },
+        "botinfo": {
+            "name": "botinfo",
+            "description": "Show bot information",
+            "title": "🤖 Bot Info",
+            "uptime": "Uptime",
+            "servers": "Servers",
+            "users": "Users",
+            "memory": "Memory Usage",
+            "ping": "Ping"
+        },
+        "embed": {
+            "name": "embed",
+            "description": "Create a custom embed message"
+        },
+        "setup": {
+            "name": "setup",
+            "description": "Server setup wizard",
+            "roleSetup": "Role Setup",
+            "channelSetup": "Channel Setup",
+            "emojiSetup": "Emoji Setup",
+            "confirm": "⚠️ This will modify existing {type}. Do you want to continue?",
+            "success": "✅ {type} setup complete!",
+            "inProgress": "⏳ {type} setup in progress..."
+        },
+        "settings": {
+            "name": "settings",
+            "description": "Manage server settings",
+            "title": "⚙️ Server Settings",
+            "updated": "✅ Setting updated!"
+        },
+        "welcome": {
+            "name": "welcome",
+            "description": "Set welcome message",
+            "set": "✅ Welcome message has been set!",
+            "disabled": "❌ Welcome message has been disabled!"
+        },
+        "autorole": {
+            "name": "autorole",
+            "description": "Set auto-role",
+            "added": "✅ {role} has been added as an auto-role!",
+            "removed": "❌ {role} has been removed from auto-roles!",
+            "list": "Auto-Roles"
+        },
+        "buttonrole": {
+            "name": "buttonrole",
+            "description": "Set up button role system"
+        },
+        "selectrole": {
+            "name": "selectrole",
+            "description": "Set up select menu role system"
+        },
+        "colorrole": {
+            "name": "colorrole",
+            "description": "Color role system"
+        },
+        "statsChannels": {
+            "name": "stats",
+            "description": "Set up stats channels"
+        },
+        "giveaway": {
+            "name": "giveaway",
+            "description": "Giveaway management",
+            "started": "🎉 Giveaway started!",
+            "ended": "🎉 Giveaway ended!",
+            "winner": "🎉 Winner: {winners}",
+            "noWinner": "No winner could be determined due to insufficient participants.",
+            "rerolled": "🎉 Rerolled! New winner: {winner}",
+            "join": "🎉 You joined the giveaway!",
+            "leave": "You left the giveaway!",
+            "alreadyJoined": "You already joined the giveaway!"
+        },
+        "ticketSetup": {
+            "name": "ticket-setup",
+            "description": "Set up ticket system"
+        },
+        "blackjack": {
+            "name": "blackjack",
+            "description": "Play blackjack",
+            "bet": "Enter bet amount",
+            "win": "You won! **+{amount}** {currency}",
+            "lose": "You lost! **-{amount}** {currency}",
+            "draw": "It's a draw! Your bet has been returned.",
+            "bust": "You busted! You lost!",
+            "dealerBust": "Dealer busted! You won!",
+            "hit": "Hit",
+            "stand": "Stand",
+            "double": "Double Down"
+        },
+        "slot": {
+            "name": "slot",
+            "description": "Play slot machine",
+            "win": "🎰 You won! **+{amount}** {currency}",
+            "lose": "🎰 You lost! **-{amount}** {currency}",
+            "jackpot": "🎰 JACKPOT! **+{amount}** {currency} 🎊"
+        },
+        "coinflip": {
+            "name": "coinflip",
+            "description": "Play coin flip",
+            "heads": "Heads",
+            "tails": "Tails",
+            "win": "Correct guess! **+{amount}** {currency}",
+            "lose": "Wrong guess! **-{amount}** {currency}"
+        },
+        "guess": {
+            "name": "guess",
+            "description": "Number guessing game",
+            "start": "I'm thinking of a number between 1-100! Guess it.",
+            "higher": "Go higher! ⬆️",
+            "lower": "Go lower! ⬇️",
+            "correct": "Correct guess! You got it in **{attempts}** attempts! **+{amount}** {currency}"
+        },
+        "wordchain": {
+            "name": "wordchain",
+            "description": "Set up word chain game channel"
+        },
+        "bom": {
+            "name": "bom",
+            "description": "Start a BOM game"
+        },
+        "counting": {
+            "name": "counting",
+            "description": "Set up counting channel"
+        },
+        "purge": {
+            "name": "purge",
+            "description": "Bulk delete messages",
+            "success": "🗑️ **{count}** messages deleted!"
+        },
+        "deposit": {
+            "name": "deposit",
+            "description": "Deposit money to bank",
+            "success": "🏦 **{amount}** {currency} deposited to bank!",
+            "noMoney": "You don't have enough balance!"
+        },
+        "withdraw": {
+            "name": "withdraw",
+            "description": "Withdraw money from bank",
+            "success": "💳 **{amount}** {currency} withdrawn from bank!",
+            "noMoney": "Not enough money in your bank!"
+        },
+        "unban": {
+            "name": "unban",
+            "description": "Unban a user",
+            "success": "✅ **{user}** has been unbanned!"
+        },
+        "lock": {
+            "name": "lock",
+            "description": "Lock or unlock a channel"
+        },
+        "slowmode": {
+            "name": "slowmode",
+            "description": "Set channel slowmode"
+        },
+        "ping": {
+            "name": "ping",
+            "description": "Show bot latency"
+        },
+        "levelRewards": {
+            "name": "level-rewards",
+            "description": "Manage level rewards"
+        }
+    },
+    "systems": {
+        "welcome": {
+            "defaultMessage": "Welcome {user}! 🎉 You joined **{server}**! We now have **{memberCount}** members.",
+            "defaultGoodbye": "Goodbye **{user}**! Hope to see you again. 👋"
+        },
+        "automod": {
+            "swearBlocked": "⚠️ {user}, profanity is not allowed!",
+            "spamBlocked": "⚠️ {user}, stop spamming!",
+            "capsBlocked": "⚠️ {user}, too many capital letters!",
+            "linkBlocked": "⚠️ {user}, link sharing is not allowed!"
+        },
+        "antiRaid": {
+            "triggered": "🚨 **Anti-Raid activated!** {count} members joined in the last {interval} seconds. Automatic {action} is being applied."
+        },
+        "leveling": {
+            "levelUp": "Congratulations {user}! 🎉 You reached level **{level}**!"
+        },
+        "ticket": {
+            "createButton": "📩 Create Support Ticket",
+            "created": "Your support ticket has been created! {channel}",
+            "closed": "This ticket has been closed.",
+            "closeButton": "🔒 Close Ticket",
+            "transcriptButton": "📝 Transcript",
+            "deleteButton": "🗑️ Delete",
+            "panelTitle": "📩 Support System",
+            "panelDescription": "Click the button below to create a support ticket."
+        },
+        "privateRoom": {
+            "created": "🔊 Your private room has been created: {channel}",
+            "deleted": "🔇 Private room deleted.",
+            "lockButton": "🔒 Lock",
+            "unlockButton": "🔓 Unlock",
+            "renameButton": "✏️ Rename",
+            "limitButton": "👥 Set Limit",
+            "kickButton": "👢 Kick User"
+        },
+        "counting": {
+            "wrong": "❌ Wrong number! Counter has been reset to **0**. Next number: **1**",
+            "sameUser": "❌ The same person can't count twice in a row! Counter has been reset to **0**."
+        },
+        "wordchain": {
+            "wrong": "❌ The word must start with the letter \"{lastLetter}\"!",
+            "used": "❌ This word has already been used!",
+            "sameUser": "❌ The same person can't play twice in a row!"
+        }
+    },
+    "roles": {
+        "added": "✅ {role} role has been added!",
+        "removed": "❌ {role} role has been removed!",
+        "updated": "✅ Your roles have been updated!",
+        "colorChanged": "🎨 Your color role has been changed: {role}"
+    },
+    "errors": {
+        "noPermission": "You don't have permission to use this command!",
+        "botNoPermission": "The bot doesn't have permission to perform this action!",
+        "roleError": "An error occurred during the role operation!",
+        "userNotFound": "User not found!",
+        "invalidAmount": "Invalid amount!",
+        "notEnoughMoney": "Not enough {currency}!",
+        "onCooldown": "You must wait **{time}** before using this command again!",
+        "error": "An error occurred! Please try again later.",
+        "adminOnly": "Only administrators can use this command!",
+        "modOnly": "Only moderators can use this command!",
+        "ownerOnly": "Only the bot owner can use this command!"
+    },
+    "general": {
+        "yes": "Yes",
+        "no": "No",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "page": "Page",
+        "reason": "Reason",
+        "moderator": "Moderator",
+        "duration": "Duration",
+        "none": "None",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "noReason": "No reason specified"
+    }
+}

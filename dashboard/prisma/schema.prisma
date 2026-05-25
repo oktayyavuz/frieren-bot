@@ -1,0 +1,504 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+
+
+model GuildSettings {
+  id        String   @id 
+  language  String   @default("tr")
+  prefix    String   @default("!")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  
+  economyEnabled    Boolean @default(false)
+  levelingEnabled   Boolean @default(false)
+  moderationEnabled Boolean @default(false)
+  ticketEnabled     Boolean @default(false)
+  welcomeEnabled    Boolean @default(false)
+  loggingEnabled    Boolean @default(false)
+
+  
+  modLogChannel     String?
+  messageLogChannel String?
+  voiceLogChannel   String?
+  serverLogChannel  String?
+
+  
+  automodEnabled       Boolean @default(false)
+  antiSwearEnabled     Boolean @default(false)
+  antiSpamEnabled      Boolean @default(false)
+  antiCapsEnabled      Boolean @default(false)
+  antiLinkEnabled      Boolean @default(false)
+  antiSwearWords       String  @default("[]") 
+  antiSpamLimit        Int     @default(5)
+  antiSpamInterval     Int     @default(5000)
+  antiCapsPercent      Int     @default(70)
+  antiCapsMinLength    Int     @default(10)
+  antiLinkWhitelist    String  @default("[]") 
+  automodWhitelistRoles String @default("[]") 
+
+  
+  antiRaidEnabled  Boolean @default(false)
+  antiRaidLimit    Int     @default(10)
+  antiRaidInterval Int     @default(10000)
+  antiRaidAction   String  @default("kick") 
+
+  
+  welcomeChannelId String?
+  welcomeMessage   String  @default("Hoş geldin {user}! Sunucumuza katıldığın için teşekkürler.")
+  goodbyeChannelId String?
+  goodbyeMessage   String  @default("Güle güle {user}! Umarız tekrar görüşürüz.")
+
+  
+  autoRoles String @default("[]") 
+
+  
+  privateRoomEnabled   Boolean @default(false)
+  privateRoomChannelId String? 
+  privateRoomCategoryId String?
+
+  
+  statsEnabled Boolean @default(false)
+  statsCategoryId String?
+
+  
+  currencyName  String @default("Okane")
+  currencyEmoji String @default("💰")
+
+  
+  helpEmbedImage    String? 
+  economyEmbedImage String? 
+
+  
+  levelUpChannelId String? 
+  levelUpMessage   String  @default("Tebrikler {user}! **{level}** seviyesine ulaştın! 🎉")
+
+  
+  starboardEnabled   Boolean @default(false)
+  starboardChannelId String?
+  starboardThreshold Int     @default(3)
+  starboardEmoji     String  @default("⭐")
+
+  
+  birthdayChannelId  String?
+  birthdayRoleId     String?
+  birthdayMessage    String  @default("🎂 Bugün {user} doğum günü! Herkese kutlu olsun! 🎉")
+
+  
+  setupRoles      String @default("[]") 
+  setupChannels   String @default("[]") 
+  setupCategories String @default("[]") 
+
+  
+  guildUsers    GuildUser[]
+  warnings      Warning[]
+  tickets       Ticket[]
+  ticketCategories TicketCategory[]
+  giveaways     Giveaway[]
+  privateRooms  PrivateRoom[]
+  shopItems     ShopItem[]
+  buttonRoles   ButtonRole[]
+  selectRoles   SelectRole[]
+  colorRoles    ColorRole[]
+  statsChannels StatsChannel[]
+  levelRewards  LevelReward[]
+  wordChains    WordChain[]
+  countings     Counting[]
+  snipes        Snipe[]
+  reactionRoles ReactionRole[]
+}
+
+model ReactionRole {
+  id        Int      @id @default(autoincrement())
+  guildId   String
+  messageId String
+  emoji     String
+  roleId    String
+  createdAt DateTime @default(now())
+
+  guild     GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, emoji])
+  @@index([messageId])
+}
+
+
+
+
+model User {
+  id        String   @id 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  
+  totalXp     Int @default(0)
+  commandsUsed Int @default(0)
+
+  
+  guildUsers  GuildUser[]
+  afk         AFK?
+  reminders   Reminder[]
+}
+
+model GuildUser {
+  id        Int      @id @default(autoincrement())
+  userId    String
+  guildId   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  
+  balance   Int @default(0)
+  bank      Int @default(0)
+  inventory String @default("[]") 
+  magicCollection String @default("[]") 
+
+  
+  dailyCooldown   DateTime?
+  weeklyCooldown  DateTime?
+  hourlyCooldown  DateTime?
+  workCooldown    DateTime?
+  crimeCooldown   DateTime?
+  robCooldown     DateTime?
+
+  
+  xp          Int @default(0)
+  level       Int @default(0)
+  totalMessages Int @default(0)
+  voiceMinutes  Int @default(0)
+
+  
+  user    User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  guild   GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, guildId])
+  @@index([guildId, xp])
+  @@index([guildId, balance])
+}
+
+
+
+
+model Warning {
+  id        Int      @id @default(autoincrement())
+  userId    String
+  guildId   String
+  moderatorId String
+  reason    String   @default("Sebep belirtilmedi")
+  createdAt DateTime @default(now())
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@index([userId, guildId])
+}
+
+model Snipe {
+  id        Int      @id @default(autoincrement())
+  guildId   String
+  channelId String
+  userId    String
+  content   String
+  attachmentUrl String?
+  createdAt DateTime @default(now())
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@index([channelId])
+}
+
+
+
+
+model AFK {
+  id        Int      @id @default(autoincrement())
+  userId    String   @unique
+  reason    String   @default("AFK")
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+
+
+
+model Reminder {
+  id        Int      @id @default(autoincrement())
+  userId    String
+  channelId String
+  guildId   String?
+  message   String
+  remindAt  DateTime
+  createdAt DateTime @default(now())
+  completed Boolean  @default(false)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([completed, remindAt])
+}
+
+
+
+
+model TicketCategory {
+  id        Int      @id @default(autoincrement())
+  guildId   String
+  name      String
+  emoji     String   @default("🎫")
+  description String @default("")
+  staffRoleId String?
+  categoryChannelId String?
+
+  guild   GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  tickets Ticket[]
+
+  @@index([guildId])
+}
+
+model Ticket {
+  id         Int      @id @default(autoincrement())
+  guildId    String
+  channelId  String   @unique
+  userId     String
+  userTag    String?  
+  categoryId Int?
+  status     String   @default("open") 
+  transcript String?  
+  createdAt  DateTime @default(now())
+  closedAt   DateTime?
+
+  guild    GuildSettings  @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  category TicketCategory? @relation(fields: [categoryId], references: [id])
+
+  @@index([guildId, status])
+}
+
+
+
+
+model Giveaway {
+  id          Int      @id @default(autoincrement())
+  guildId     String
+  channelId   String
+  messageId   String   @unique
+  hostId      String
+  prize       String
+  winners     Int      @default(1)
+  endTime     DateTime
+  ended       Boolean  @default(false)
+  winnerIds   String   @default("[]") 
+  participants String  @default("[]") 
+  createdAt   DateTime @default(now())
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@index([ended, endTime])
+}
+
+
+
+
+model PrivateRoom {
+  id        Int      @id @default(autoincrement())
+  guildId   String
+  channelId String   @unique
+  ownerId   String
+  createdAt DateTime @default(now())
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@index([guildId])
+}
+
+
+
+
+model ShopItem {
+  id          Int    @id @default(autoincrement())
+  guildId     String
+  name        String
+  description String @default("")
+  price       Int
+  type        String @default("role") 
+  roleId      String?
+  emoji       String @default("🛒")
+  stock       Int    @default(-1) 
+  createdAt   DateTime @default(now())
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@index([guildId])
+}
+
+
+
+
+model ButtonRole {
+  id        Int    @id @default(autoincrement())
+  guildId   String
+  messageId String
+  channelId String
+  roleId    String
+  emoji     String @default("✅")
+  label     String @default("")
+  style     Int    @default(1) 
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@index([messageId])
+}
+
+model SelectRole {
+  id        Int    @id @default(autoincrement())
+  guildId   String
+  messageId String
+  channelId String
+  roleId    String
+  label     String
+  description String @default("")
+  emoji     String?
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@index([messageId])
+}
+
+model ColorRole {
+  id      Int    @id @default(autoincrement())
+  guildId String
+  roleId  String
+  name    String
+  color   String 
+  emoji   String?
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@index([guildId])
+}
+
+
+
+
+model StatsChannel {
+  id        Int    @id @default(autoincrement())
+  guildId   String
+  channelId String @unique
+  type      String 
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@index([guildId])
+}
+
+
+
+
+model LevelReward {
+  id      Int    @id @default(autoincrement())
+  guildId String
+  level   Int
+  roleId  String
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@unique([guildId, level])
+}
+
+
+
+
+model WordChain {
+  id        Int    @id @default(autoincrement())
+  guildId   String
+  channelId String @unique
+  lastWord  String @default("")
+  lastUserId String @default("")
+  usedWords String @default("[]") 
+  score     Int    @default(0)
+  active    Boolean @default(true)
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+}
+
+model Counting {
+  id        Int    @id @default(autoincrement())
+  guildId   String
+  channelId String @unique
+  currentNumber Int @default(0)
+  lastUserId    String @default("")
+  highScore     Int @default(0)
+  active        Boolean @default(true)
+
+  guild GuildSettings @relation(fields: [guildId], references: [id], onDelete: Cascade)
+}
+
+
+
+
+model BotSettings {
+  id              String   @id @default("global")
+  activityName    String   @default("Frieren Destek")
+  activityType    Int      @default(0)
+  status          String   @default("online")
+  maintenanceMode Boolean  @default(false)
+  updatedAt       DateTime @updatedAt
+}
+
+
+
+
+model SyncLog {
+  id        Int      @id @default(autoincrement())
+  guildId   String
+  module    String   @default("Sistem")
+  message   String
+  level     String   @default("info")
+  timestamp DateTime @default(now())
+
+  @@index([guildId, timestamp])
+}
+
+model SyncRequest {
+  id          Int      @id @default(autoincrement())
+  guildId     String   @unique
+  requestedAt DateTime @default(now())
+
+  @@index([guildId])
+}
+
+
+
+
+model StarboardEntry {
+  id            Int      @id @default(autoincrement())
+  guildId       String
+  originalMsgId String   @unique
+  starMsgId     String   @unique
+  channelId     String
+  authorId      String
+  starCount     Int      @default(0)
+  createdAt     DateTime @default(now())
+
+  @@index([guildId])
+}
+
+
+
+
+model Birthday {
+  id      Int    @id @default(autoincrement())
+  userId  String
+  guildId String
+  day     Int
+  month   Int
+
+  @@unique([userId, guildId])
+  @@index([guildId, month, day])
+}
